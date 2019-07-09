@@ -1,0 +1,18 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build services
+
+.build-template:
+  stage: build services
+  script:
+    - docker build -t $SERVICE_NAME $SERVICE_PATH
+
+build account:
+  extends: .build-template
+  variables:
+    SERVICE_NAME: pre-auth-service
+    SERVICE_PATH: .
