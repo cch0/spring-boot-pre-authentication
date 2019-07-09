@@ -11,7 +11,7 @@ stages:
   script:
     - docker build -t $SERVICE_NAME $SERVICE_PATH
 
-build account:
+build service:
   extends: .build-template
   variables:
     SERVICE_NAME: pre-auth-service
